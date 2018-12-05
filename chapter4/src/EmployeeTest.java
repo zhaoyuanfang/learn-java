@@ -49,7 +49,9 @@ class Employee
 		double raise = salary * byPercent/100;
 		salary += raise;
 	}
-	
+	public static void main(String[] args) {
+		System.out.println("this is just a test");
+	}
 	private String name;
 	private double salary;
 	private Date hireDay;
