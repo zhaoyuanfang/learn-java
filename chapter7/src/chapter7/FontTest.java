@@ -1,9 +1,17 @@
 package chapter7;
-import java.awt.*;
-import javax.swing.*;
 
-import java.awt.font.*;
-import java.awt.geom.*;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+
 /**
  * @version 20181210
  * @author Administrator
@@ -12,22 +20,22 @@ import java.awt.geom.*;
 public class FontTest {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				FontFrame fontFrame = new FontFrame();
 				fontFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// TODO Auto-generated method stub
 				fontFrame.setVisible(true);
-				
+
 			}
 		});
 	}
 }
 
-class FontFrame extends JFrame
-{
+class FontFrame extends JFrame {
 	private static final int DEFAULT_WIDTH = 300;
 	private static final int DEFAULT_HEIGHT = 200;
+
 	public FontFrame() {
 		setTitle("FontTest");// TODO Auto-generated constructor stub
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -36,8 +44,7 @@ class FontFrame extends JFrame
 	}
 }
 
-class FontComponent extends JComponent
-{
+class FontComponent extends JComponent {
 	@Override
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
@@ -51,9 +58,9 @@ class FontComponent extends JComponent
 		double y = (getHeight() - bounds.getHeight()) / 2;
 		double ascent = -bounds.getY();
 		double baseY = y + ascent;
-		graphics2d.drawString(message, (int)x, (int)baseY);
+		graphics2d.drawString(message, (int) x, (int) baseY);
 		graphics2d.setPaint(Color.LIGHT_GRAY);
-		graphics2d.draw(new Line2D.Double(x, baseY, x+bounds.getWidth(), baseY));
+		graphics2d.draw(new Line2D.Double(x, baseY, x + bounds.getWidth(), baseY));
 		Rectangle2D rectangle2d = new Rectangle2D.Double(x, y, bounds.getWidth(), bounds.getHeight());
 	}
 }
